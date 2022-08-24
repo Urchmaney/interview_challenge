@@ -1,5 +1,5 @@
-# README
- The Pizza Project is a task that encourage the knownledge of trello API and webhook
+# Pizza Challenge
+ The Pizza Project is a task that encourage the knownledge of trello API and webhook. Read more about the task [here](./OfferZen_TechnicalTest_RoR.pdf)
 
  ## Instruction to run application
  <hr>
