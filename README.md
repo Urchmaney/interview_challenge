@@ -10,15 +10,17 @@
  1. This application was built using the following tools versions
     - `ruby 3.0.0p0`
     - `Rails 7.0.3.1`
- 2. Create a yml file under `/config` 
- 3. To run this application, we need some data in `/config/application.yml`. the required data are as follow :
+ 2. We clone the project using the following command `git clone -b pizza_project --single-branch https://github.com/Urchmaney/interview_challenge.git`
+`
+ 3. Create a yml file named `application.yml` under `/config` 
+ 4. To run this application, we need some data in `/config/application.yml`. the required data are as follow :
     - `TRELLO_TOKEN: <your Trello token>`
     - `TRELLO_KEY: <your Trello key>`
     - `TRELLO_BOARD_ID: <trello board ID to work with>`
- 4. we need to register our webhook with trello, so we need our application host. If you running on local host you can use ngrok url. <br>
+ 5. we need to register our webhook with trello, so we need our application host. If you running on local host you can use ngrok url. <br>
  After we have the host url, make a POST Request to the following URL. `https://api.trello.com/1/webhooks/?callbackURL=<HOST URL>/tasks/trello_web_hook&idModel=<trello board ID to work with>&key=<your Trello key>&token=<your Trello token>` 
-5. Run `bundle install`
-6. Now we can run the application from terminal with `rails s` 
+6. Run `bundle install`
+7. Now we can run the application from terminal with `rails s` 
 <br>
 <br>
 
