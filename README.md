@@ -37,6 +37,7 @@
   - Improve styling structure
   - Structure code better
   - Write test
+  - Split commit
 
 ### **Do you have any feedback on this assignment??**
 It was an interesting project. I refreshed my knowledge of some tools I used long back. I also enjoyed the webhook aspect.
