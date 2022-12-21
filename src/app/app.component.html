@@ -1,7 +1,7 @@
 
 <div class="app-container">
   <div class="calc-container">
-    <div class="display">{{operands.join(' ')}}</div>
+    <div class="display">{{operands.join(' ')}}<div class="result">{{result}}</div></div>
     <div class="keypad-container">
       <dynamic-button [display_name]='"7"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
       <dynamic-button [display_name]='"8"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
@@ -19,6 +19,7 @@
       <dynamic-button [display_name]='"."' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
       <dynamic-button [display_name]='"="' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
       <dynamic-button [display_name]='"-"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+      <dynamic-button [display_name]='"CE"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
     </div>
   </div>  
 </div>

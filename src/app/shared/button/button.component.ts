@@ -12,7 +12,6 @@ export class ButtonComponent {
   @Output() clickEvent = new EventEmitter<string>();
 
   onClick() {
-    console.log(`clicking here ${this.display_name}`);
     this.clickEvent.emit(this.display_name);
   }
 }

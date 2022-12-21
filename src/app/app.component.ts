@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculatorService } from './services/calculator.service';
 
 @Component({
   selector: 'app-root',
@@ -6,76 +7,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
+  constructor(private service: CalculatorService) {}
+
   operands: string[] = [];
-  specialOPerands = ['/', 'x', '+', '-'];
+
+  result = '';
 
   recordOperand(operand: string) {
     const lastOperand = this.operands[this.operands.length - 1];
-    console.log(lastOperand);
-    if(this.specialOPerands.includes(operand) && lastOperand && !this.specialOPerands.includes(lastOperand)) {
-      this.operands.push(operand);
+
+    if(operand === '=') {
+      this.result = this.service.calculateResult(this.operands);
+      return;
     }
-    if((!this.specialOPerands.includes(operand) && this.specialOPerands.includes(lastOperand)) || !lastOperand) {
-      this.operands.push(operand);
+
+    if(operand === 'CE') {
+      this.operands = [];
+      this.result = '';
+      return;
     }
-    else if (!this.specialOPerands.includes(operand) && !this.specialOPerands.includes(lastOperand)) {
-      this.operands[this.operands.length - 1] = lastOperand + operand;
-    }
-  }
-
-  operationsMethods = {
-    'x': (a: number, b: number) => a * b,
-    '-': (a: number, b: number) => a - b,
-    '+': (a: number, b: number) => a + b,
-    '/': (a: number, b: number) => a / b,
-  }
-
-  calculateOperation(operations: string[]) {
-    let result = [...operations];
-    result = result.reduce((acc: any[], val, i, arr) => {
-      if (arr[i - 1] == '/') {
-        acc.pop();
-        acc[acc.length - 1] = Number(acc[acc.length - 1]) / Number(val);
-      }
-      else {
-        acc.push(val);
-      }
-      return acc;
-    }, []);
-
-    result = result.reduce((acc: any[], val, i, arr) => {
-      if (arr[i - 1] == 'x') {
-        acc.pop();
-        acc[acc.length - 1] = Number(acc[acc.length - 1]) * Number(val);
-      }
-      else {
-        acc.push(val);
-      }
-      return acc;
-    }, []);
-
-    result = result.reduce((acc: any[], val, i, arr) => {
-      if (arr[i - 1] == '+') {
-        acc.pop();
-        acc[acc.length - 1] = Number(acc[acc.length - 1]) + Number(val);
-      }
-      else {
-        acc.push(val);
-      }
-      return acc;
-    }, []);
-
-    result = result.reduce((acc: any[], val, i, arr) => {
-      if (arr[i - 1] == '-') {
-        acc.pop();
-        acc[acc.length - 1] = Number(acc[acc.length - 1]) - Number(val);
-      }
-      else {
-        acc.push(val);
-      }
-      return acc;
-    }, []);
    
-    return result;
+    if(this.service.isOperator(lastOperand) && (this.service.isOperator(operand) || operand == '.'))
+    {
+      return;
+    }
+
+    if (lastOperand && !this.service.isOperator(lastOperand) && !this.service.isOperator(operand)) {
+      this.operands[this.operands.length - 1] = lastOperand + operand;
+      return;
+    }
+
+    this.operands.push(operand);
   }
 }

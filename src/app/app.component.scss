@@ -23,6 +23,18 @@ p {
   background-color: white;
   border-radius: 5px;
   margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.result {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 50px;
+  font-weight: bold;
+  font-size: larger;
 }
 .dynamic-btn {
   padding-top: 5px;
