@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "dynamic-button",
@@ -7,9 +7,12 @@ import { Component, Input } from "@angular/core";
 })
 
 export class ButtonComponent {
-  @Input() display_name = ""
+  @Input() display_name = "";
+
+  @Output() clickEvent = new EventEmitter<string>();
 
   onClick() {
     console.log(`clicking here ${this.display_name}`);
+    this.clickEvent.emit(this.display_name);
   }
 }
