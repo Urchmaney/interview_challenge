@@ -8,7 +8,7 @@ export async function up(knex: Knex): Promise<void> {
     table.integer('recipient_wallet_id').unsigned().references('wallets.id');
     table.integer('wallet_id').unsigned().references('wallets.id');
     table.enu('currency', [NGN]);
-    table.enu('tranx_type', TRANSACTION_TYPES);
+    table.enu('transaction_type', TRANSACTION_TYPES);
     table.double('amount').defaultTo(0).unsigned();
   })
 }
