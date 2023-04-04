@@ -6,7 +6,7 @@ export const NGN: string = "NGN";
 export const CURRENCIES: string[] = [NGN];
 export const USER_TABLE: string = "users";
 export const WALLET_TABLE: string = "wallets";
-export const WALLET_TRANSACTION_TABLES = "wallet_transactions";
+export const WALLET_TRANSACTION_TABLE = "wallet_transactions";
 
 export const DEPOSIT: string = "Deposit";
 export const TRANSFER: string = "Transfer";
