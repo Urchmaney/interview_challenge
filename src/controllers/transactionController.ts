@@ -2,10 +2,8 @@ import { Request, Response } from "express";
 import { AuthRequest } from "../models/custom";
 import { depositIntoWallet, transferToWallet, withdrawFromWallet } from "../services/dbService";
 
-const knex = require('../configs/db/knex');
-
 export function withdraw(req: Request, res: Response): void {
-  const userId = (req as AuthRequest).userId!;
+  const userId = (req as AuthRequest).userId || 0;
   const amount = req.body.amount;
   const walletId = req.body.wallet_id;
   withdrawFromWallet(
@@ -17,7 +15,7 @@ export function withdraw(req: Request, res: Response): void {
 }
 
 export function deposit(req: Request, res: Response): void {
-  const user_id : string = (req as AuthRequest).userId!;
+  const userId : number = (req as AuthRequest).userId || 0;
   const amount : number = req.body.amount;
   const walletId: number = req.body.wallet_id;
   depositIntoWallet(
@@ -29,7 +27,7 @@ export function deposit(req: Request, res: Response): void {
 }
 
 export function transfer(req: Request, res: Response): void {
-  const userId = (req as AuthRequest).userId!;
+  const userId = (req as AuthRequest).userId || 0;
   const amount = req.body.amount;
   const walletId = req.body.wallet_id;
   const reciepientWalletId = req.body.reciepient_wallet_id;

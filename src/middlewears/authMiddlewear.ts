@@ -16,6 +16,6 @@ export function tokenAuthMiddlewear (req: Request, res: Response, next: NextFunc
     return;
   }
 
-  (req as AuthRequest).userId = decoded.id;
+  (req as AuthRequest).userId = decoded.userId;
   next()
 }
