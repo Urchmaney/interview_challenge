@@ -7,9 +7,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "npx nodemon",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "lint": "eslint . --ext .ts",
     "knex:migrate": "knex migrate:latest --knexfile src/configs/db/knexfile"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Urchmaney/interview_challenge.git"
@@ -36,6 +44,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^4.4.1"
   }
 }

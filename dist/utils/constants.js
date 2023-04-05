@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.APP_SECRET = exports.TRANSACTION_TYPES = exports.WITHDRAW = exports.TRANSFER = exports.DEPOSIT = exports.WALLET_TRANSACTION_TABLE = exports.WALLET_TABLE = exports.USER_TABLE = exports.CURRENCIES = exports.NGN = void 0;
+var dotenv = require("dotenv");
+var r = dotenv.config();
+exports.NGN = "NGN";
+exports.CURRENCIES = [exports.NGN];
+exports.USER_TABLE = "users";
+exports.WALLET_TABLE = "wallets";
+exports.WALLET_TRANSACTION_TABLE = "wallet_transactions";
+exports.DEPOSIT = "Deposit";
+exports.TRANSFER = "Transfer";
+exports.WITHDRAW = "Withdraw";
+exports.TRANSACTION_TYPES = [exports.DEPOSIT, exports.TRANSFER, exports.WITHDRAW];
+exports.APP_SECRET = process.env.APP_SECRET;
