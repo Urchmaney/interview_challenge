@@ -1,15 +1,16 @@
 import { Router } from 'express';
-import { withdraw, deposit, transfer } from '../controllers/walletController';
-import { tokenAuthMiddlewear } from '../middlewears/authMiddlewear'
+import { withdraw, deposit, transfer, getUserWallets } from '../controllers/walletController';
+import { tokenAuthMiddlewear } from '../middlewears/authMiddlewear';
+import { walletOwnerMiddlewear } from '../middlewears/walletOwnerMiddlewear';
 
 export const walletRouter: Router = Router();
 
 walletRouter.use(tokenAuthMiddlewear)
 
-walletRouter.get('/', );
+walletRouter.get('/', getUserWallets);
 
-walletRouter.post(':walletId/withdraw', withdraw);
+walletRouter.post('/:walletId/withdraw', walletOwnerMiddlewear, withdraw);
 
-walletRouter.post(':walletId/deposit', deposit);
+walletRouter.post('/:walletId/deposit', walletOwnerMiddlewear, deposit);
 
-walletRouter.post(':walletId/transfer', transfer);
+walletRouter.post('/:walletId/transfer', walletOwnerMiddlewear, transfer);

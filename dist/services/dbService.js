@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.transferToWallet = exports.withdrawFromWallet = exports.depositIntoWallet = exports.registerNewUser = exports.getUserByEmail = void 0;
+exports.transferToWallet = exports.withdrawFromWallet = exports.depositIntoWallet = exports.registerNewUser = exports.getUserByEmail = exports.userWallets = exports.isUserWalletOwner = void 0;
 var constants_1 = require("../utils/constants");
 var knex = require('../configs/db/knex');
 function createNewUser(user) {
@@ -19,6 +19,14 @@ function decrementWalletAmount(walletId, amount) {
 function incrementWalletAmount(walletId, amount) {
     return knex(constants_1.WALLET_TABLE).where('id', '=', walletId).increment('balance', amount);
 }
+function isUserWalletOwner(userId, walletId) {
+    return knex(constants_1.WALLET_TABLE).whereExists(knex.select('*').from(constants_1.WALLET_TABLE).whereRaw("user_id = ".concat(userId, " && id = ").concat(walletId)));
+}
+exports.isUserWalletOwner = isUserWalletOwner;
+function userWallets(userId) {
+    return knex(constants_1.WALLET_TABLE).where('user_id', userId);
+}
+exports.userWallets = userWallets;
 function getUserByEmail(email) {
     return knex(constants_1.USER_TABLE).where('email', email).first();
 }

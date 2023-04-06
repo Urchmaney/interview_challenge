@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { AuthRequest } from "../models/custom";
-import { depositIntoWallet, transferToWallet, withdrawFromWallet } from "../services/dbService";
+import { Wallet } from "../models/interfaces";
+import { depositIntoWallet, transferToWallet, userWallets, withdrawFromWallet } from "../services/dbService";
 
 export function withdraw(req: Request, res: Response): void {
-  const userId = (req as AuthRequest).userId || 0;
   const amount = req.body.amount;
-  const walletId = req.body.wallet_id;
+  const walletId = req.params.walletId as unknown as number;
   withdrawFromWallet(
     walletId,
     amount,
@@ -15,9 +15,8 @@ export function withdraw(req: Request, res: Response): void {
 }
 
 export function deposit(req: Request, res: Response): void {
-  const userId : number = (req as AuthRequest).userId || 0;
   const amount : number = req.body.amount;
-  const walletId: number = req.body.wallet_id;
+  const walletId: number = req.params.walletId as unknown as number;
   depositIntoWallet(
     walletId,
     amount,
@@ -27,10 +26,9 @@ export function deposit(req: Request, res: Response): void {
 }
 
 export function transfer(req: Request, res: Response): void {
-  const userId = (req as AuthRequest).userId || 0;
   const amount = req.body.amount;
-  const walletId = req.body.wallet_id;
-  const reciepientWalletId = req.body.reciepient_wallet_id;
+  const walletId = req.params.walletId as unknown as number;
+  const reciepientWalletId = req.body.reciepientWalletId;
 
   transferToWallet(
     walletId,
@@ -39,5 +37,12 @@ export function transfer(req: Request, res: Response): void {
     () => { res.send('Successfully transfered.') },
     (err: any) => { res.status(400).send('Error while transferring.') }
   )
+}
+
+export function getUserWallets(req: Request, res: Response): void {
+  const userId: number = (req as AuthRequest).userId || 0;
+  userWallets(userId).then((result: Wallet[]) => {
+    res.send(result.map((wallet: Wallet) => ({ id: wallet.id, currency: wallet.currency })));
+  })
 }
 

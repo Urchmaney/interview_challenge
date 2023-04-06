@@ -25,6 +25,16 @@ function incrementWalletAmount(walletId: number, amount: number) {
   return knex<Wallet>(WALLET_TABLE).where('id', '=', walletId).increment('balance', amount);
 }
 
+export function isUserWalletOwner(userId: number, walletId: number) {
+  return knex<Wallet>(WALLET_TABLE).whereExists(
+    knex.select('*').from(WALLET_TABLE).whereRaw(`user_id = ${userId} && id = ${walletId}`)
+  );
+}
+
+export function userWallets(userId: number) {
+  return knex<Wallet>(WALLET_TABLE).where('user_id', userId)
+}
+
 export function getUserByEmail(email: string) {
   return knex<User>(USER_TABLE).where('email', email).first()
 }
