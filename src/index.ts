@@ -1,6 +1,6 @@
 import express from 'express';
 import { authRouter } from './routes/auth';
-import { transactionRouter } from './routes/transaction';
+import { walletRouter } from './routes/wallet';
 import { Knex } from "knex/types";
 import bodyParser = require('body-parser');
 
@@ -15,7 +15,7 @@ const port = 3000;
 
 app.use('/api/auth', authRouter);
 
-app.use('/api/transactions', transactionRouter);
+app.use('/api/wallets/', walletRouter);
 
 knex.migrate.latest().then(() => {
   console.log("Migration Successed");
