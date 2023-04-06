@@ -50,7 +50,7 @@ function depositIntoWallet(walletId, amount, cb, errCb) {
             return addWalletTransaction({ wallet_id: walletId, transaction_type: constants_1.DEPOSIT, amount: amount, currency: constants_1.NGN }).transacting(trx);
         }).then(trx.commit)
             .catch(trx.rollback);
-    }).then(function (_) {
+    }).then(function (result) {
         cb();
     }).catch(function (err) {
         errCb(err);

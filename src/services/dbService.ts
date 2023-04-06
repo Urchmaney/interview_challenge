@@ -58,7 +58,7 @@ export function depositIntoWallet(walletId: number, amount: number, cb: ()=> voi
       return addWalletTransaction({ wallet_id: walletId, transaction_type: DEPOSIT, amount: amount, currency: NGN }).transacting(trx);
     }).then(trx.commit)
     .catch(trx.rollback);
-  }).then((_: unknown) => {
+  }).then((result: unknown) => {
     cb();
   }).catch((err: any) => {
     errCb(err);
