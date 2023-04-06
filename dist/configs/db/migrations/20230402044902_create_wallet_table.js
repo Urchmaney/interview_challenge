@@ -43,9 +43,10 @@ function up(knex) {
         return __generator(this, function (_a) {
             return [2 /*return*/, knex.schema.createTable('wallets', function (table) {
                     table.increments();
-                    table.integer('user_id').unsigned().unique().references('users.id');
-                    table.enu('currency', [constants_1.NGN]);
-                    table.double('balance').defaultTo(0).unsigned();
+                    table.integer('user_id').unsigned().unique().references('users.id').notNullable();
+                    table.enu('currency', [constants_1.NGN]).notNullable();
+                    table.double('balance').defaultTo(0).unsigned().notNullable();
+                    table.unique(['user_id', 'currency']);
                 })];
         });
     });

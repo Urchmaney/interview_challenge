@@ -44,10 +44,10 @@ function up(knex) {
             return [2 /*return*/, knex.schema.createTable('wallet_transactions', function (table) {
                     table.increments();
                     table.integer('recipient_wallet_id').unsigned().references('wallets.id');
-                    table.integer('wallet_id').unsigned().references('wallets.id');
+                    table.integer('wallet_id').unsigned().references('wallets.id').notNullable();
                     table.enu('currency', [constants_1.NGN]);
-                    table.enu('transaction_type', constants_1.TRANSACTION_TYPES);
-                    table.double('amount').defaultTo(0).unsigned();
+                    table.enu('transaction_type', constants_1.TRANSACTION_TYPES).notNullable();
+                    table.double('amount').defaultTo(0).unsigned().notNullable();
                 })];
         });
     });
