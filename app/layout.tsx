@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Darker_Grotesque } from 'next/font/google'
+import localFont from 'next/font/local'
 
 const d_grotesque = Darker_Grotesque({ subsets: ["latin"]});
+const galanoLoocal = localFont({ src: "./GalanoGrotesqueRegular.otf"})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={d_grotesque.className}>
+      <body className={galanoLoocal.className}>
         {children}
         <script src="../node_modules/preline/dist/preline.js"></script>
       </body>
