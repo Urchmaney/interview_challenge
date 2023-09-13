@@ -61,7 +61,17 @@ export default function Home() {
               </button>
             </div>
             <div className='static md:absolute right-0 -bottom-[250px] w-[100%] md:w-[45%] mt-[30px]'>
-              <img src='/images/imagehero.webp' alt="Hero Food" className="w-[100%] h-[100%]" />
+              <Image
+                src="/images/imagehero.webp"
+                alt="Hero Food"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-[100%] h-[100%]"
+
+              />
+              {/* <img src='/images/imagehero.webp' alt="Hero Food" className="w-[100%] h-[100%]" /> */}
               {/* <Image
                 src="/images/imagehero.webp"
                 alt="Hero Food"
@@ -94,7 +104,17 @@ export default function Home() {
             </div>
 
             <div className='w-[100%] md:w-[45%] py-3'>
-              <img alt='First Value' className='w-[100%]' src='/images/zerostress.webp' />
+              <Image
+                src="/images/zerostress.webp"
+                alt="First Value"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-[100%]"
+
+              />
+              {/* <img alt='First Value' className='w-[100%]' src='/images/zerostress.webp' /> */}
             </div>
           </div>
 
@@ -115,7 +135,17 @@ export default function Home() {
             </div>
 
             <div className='w-[100%] md:w-[45%] md:ml-20 py-3'>
-              <img alt='First Value' className='w-[100%]' src='/images/dispatch.webp' />
+            <Image
+                src="/images/dispatch.webp"
+                alt="Third Value"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-[100%]"
+
+              />
+              {/* <img alt='First Value' className='w-[100%]' src='/images/dispatch.webp' /> */}
             </div>
           </div>
 
@@ -134,7 +164,17 @@ export default function Home() {
             </div>
 
             <div className='w-[100%] md:w-[45%] py-3'>
-              <img alt='First Value' className='w-[100%]' src='/images/track.webp' />
+              <Image
+                src="/images/track.webp"
+                alt="Second Value"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-[100%]"
+
+              />
+              {/* <img alt='First Value' className='w-[100%]' src='/images/track.webp' /> */}
             </div>
           </div>
         </div>
@@ -144,34 +184,54 @@ export default function Home() {
       {/* Menu Section */}
       <section className='py-[40px]'>
         <div className='max-w-[1350px] mx-auto'>
-        <h2 className='text-[#f18318] text-[48px] font-bold leading-[119%] text-center  pb-[50px]'>Our <span className='text-[#241a43]'>Menu</span></h2>
-        <div className='px-5 md:gap-5 md:flex md:justify-center'>
-          <div className='w-100 max-w-[500px] mx-auto md:mx-0 border rounded-2xl mb-3'>
-            <div className='text-center'>
-              <img alt='Menu Food' src='/images/8kmenu.png' className='w-100' />
-            </div>
-            <div className='bg-white p-7 border rounded-b-2xl'>
-              <p className='text-[#f18318] text-[24px] font-medium leading-7 mb-2'>8k Menu</p>
-              <div>
-                <button className='py-3 px-6 inline-flex justify-center items-center gap-2 rounded-full border border-[#ffe4cc] hover:border-[#ffc188] font-semibold bg-[#fff4ea] text-black hover:bg-[#ffdebf] transition-all text-[15px] '>
-                  View Menu
-                </button>
+          <h2 className='text-[#f18318] text-[48px] font-bold leading-[119%] text-center  pb-[50px]'>Our <span className='text-[#241a43]'>Menu</span></h2>
+          <div className='px-5 md:gap-5 md:flex md:justify-center'>
+            <div className='w-[100%] max-w-[500px] mx-auto md:mx-0 border rounded-2xl mb-3'>
+              <div className='text-center'>
+              <Image
+                src="/images/8kmenu.png"
+                alt="Menu Food"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-full h-auto"
+
+              />
+                {/* <img alt='Menu Food' src='/images/8kmenu.png' className='w-100' /> */}
+              </div>
+              <div className='bg-white p-7 border rounded-b-2xl'>
+                <p className='text-[#f18318] text-[24px] font-medium leading-7 mb-2'>8k Menu</p>
+                <div>
+                  <button className='py-3 px-6 inline-flex justify-center items-center gap-2 rounded-full border border-[#ffe4cc] hover:border-[#ffc188] font-semibold bg-[#fff4ea] text-black hover:bg-[#ffdebf] transition-all text-[15px] '>
+                    View Menu
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='w-100 max-w-[500px] mx-auto md:mx-0 border rounded-2xl mb-3'>
-            <div>
-              <img alt='Menu Food' src='/images/8kmenu.png' className='w-100' />
-            </div>
-            <div className='bg-white p-7 border rounded-b-2xl'>
-              <p className='text-[#f18318] text-[24px] font-medium leading-7 mb-2'>10k Menu</p>
+            <div className='w-[100%] max-w-[500px] mx-auto md:mx-0 border rounded-2xl mb-3'>
               <div>
-                <button className='py-3 px-6 inline-flex justify-center items-center gap-2 rounded-full border border-[#ffe4cc] hover:border-[#ffc188] font-semibold bg-[#fff4ea] text-black hover:bg-[#ffdebf] transition-all text-[15px] '>
-                  View Menu
-                </button>
+              <Image
+                src="/images/8kmenu.png"
+                alt="Menu Food"
+                height={0}
+                sizes="100vw"
+                width={0}
+                priority
+                className="w-full h-auto"
+
+              />
+                {/* <img alt='Menu Food' src='/images/8kmenu.png' className='w-100' /> */}
+              </div>
+              <div className='bg-white p-7 border rounded-b-2xl'>
+                <p className='text-[#f18318] text-[24px] font-medium leading-7 mb-2'>10k Menu</p>
+                <div>
+                  <button className='py-3 px-6 inline-flex justify-center items-center gap-2 rounded-full border border-[#ffe4cc] hover:border-[#ffc188] font-semibold bg-[#fff4ea] text-black hover:bg-[#ffdebf] transition-all text-[15px] '>
+                    View Menu
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
