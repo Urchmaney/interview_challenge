@@ -1,0 +1,38 @@
+
+<div class="app-container">
+  <div class="calc-container">
+    <div class="display">{{operands.join(' ')}}<div class="result">{{result}}</div></div>
+    <div>
+      <div class="keypad-container">
+        <dynamic-button [display_name]='"7"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"8"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"9"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"/"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"4"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"5"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"6"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"x"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"1"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"2"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"3"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"+"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"0"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"."' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"="' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+        <dynamic-button [display_name]='"-"' class="dynamic-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+      </div>
+      <dynamic-button [display_name]='"CE"' class="dynamic-btn botton-btn" (clickEvent)="recordOperand($event)"></dynamic-button>
+    </div>
+  </div>  
+</div>
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>
